@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
+
+:root {
+  /* Colores extraídos de la interfaz */
+  --principal: #19385b;          /* Header, footer y títulos principales */
+  --subrayado: #ffd066;          /* Línea indicadora del menú activo / acento */
+  --fondo: #f4f6f9;              /* Fondo general de la aplicación */
+
+  /* Textos y estados sobre fondo oscuro */
+  --texto-blanco: #ffffff;       /* Logo y elemento activo */
+  --texto-nav-inactivo: #cfd8dc; /* Enlaces inactivos y copyright */
+
+  /* Variables semánticas listas para aplicar */
+  --header-bg: var(--principal);
+  --footer-bg: var(--principal);
+  --titulo-color: var(--principal);
+  --acento: var(--subrayado);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--texto-blanco);
+    margin: 0;
+    padding: 0;
+
+
+}
+
+header {
+    background-color: var(--header-bg);
+
+}
+
+
+header, header > nav > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+a {
+    color: var(--texto-nav-inactivo);
+
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    padding: 5;
+    margin-left: 5%;
+    margin-right: 5%;
+    
+}
+
+
+footer {
+    position: absolute; bottom: 0;
+    background-color: var(--footer-bg);
+
+}
+footer, footer > nav > ul{
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.menu__lista {
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 15px 30px;
+}
+
+.menu__enlace {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu__enlace[aria-current="page"] {
+    color: var(--texto-blanco);
+    border-bottom: 2px solid var(--acento);
+    padding-bottom: 5px;
+}
+.cabecera__marca {
+    font-family: 'Playfair Display', serif;
+    color: var(--texto-blanco);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 30px;
+
+}
+
+h1 {
+    color: var(--titulo-color);
+    text-align: center;
+    font-size: 20px;
+    margin-top: 60px;
+}
+
+
+.principal {
+    min-height: 500px;
+}
+
+.pie {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pie__texto {
+    color: var(--texto-nav-inactivo);
+    font-size: 12px;
+    padding: 15px 30px;
+    margin: 0;
+}
+
+
+.pie__lista {
+    list-style: none;
+    gap: 20px;
+    padding: 15px 30px;
+}
+.pie__enlace {
+    text-decoration: none;
+    font-size: 12px;
+}

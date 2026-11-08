@@ -8,13 +8,36 @@
 
   /* Textos y estados sobre fondo oscuro */
   --texto-blanco: #ffffff;       /* Logo y elemento activo */
+  --texto-negro: #040404;
   --texto-nav-inactivo: #cfd8dc; /* Enlaces inactivos y copyright */
+
 
   /* Variables semánticas listas para aplicar */
   --header-bg: var(--principal);
   --footer-bg: var(--principal);
   --titulo-color: var(--principal);
+
   --acento: var(--subrayado);
+  background-color: var(--fondo);
+  --color-azul-oscuro: #12355b;
+
+  /* Fondos */
+  --color-fondo-pagina: #f4f6f9;
+  --color-fondo-tarjetas: #ffffff;
+
+  /* Tipografía */
+  --color-texto: #1b1b1b;
+  --color-texto-ayuda: #4a5568;
+
+  /* Bordes */
+  --color-borde-controles: #5b6b7f;
+  --color-borde-tarjetas: #b7c0cc;
+  --borde-caja: #b7c0cc;
+
+  /* Estados y validación */
+  --color-campo-invalido: #b3261e;
+  --color-foco: #0a5bd3;
+  --color-foco-fondo-oscuro: #ffd166;
 }
 
 body {
@@ -22,9 +45,11 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: var(--texto-blanco);
+    color: var(--texto-negro);
     margin: 0;
     padding: 0;
+
+    
 
 
 }
@@ -49,28 +74,55 @@ a {
 }
 
 
+main h1 {
+    font-size: xx-large;
+}
+
 main {
-    display: flex;
-    flex-direction: column;
+    max-width: 70%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 90%;
+    margin: 0 auto;
+    padding: 25px 0 50px 0;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr;
 
-    padding: 5;
-    margin-left: 5%;
-    margin-right: 5%;
-    
+    gap: 30px;
 }
 
 
-footer {
-    position: absolute; bottom: 0;
-    background-color: var(--footer-bg);
 
+
+.contenido {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 30px;
 }
-footer, footer > nav > ul{
-    display: flex;
-    flex-direction: row;
 
-
+.formulario {
+    gap: 0;
 }
+
+
+
+
+.ayuda__lista {
+    list-style: none;
+    display: grid;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.ayuda__paso {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 15px;
+    align-items: start;
+}
+
 
 .menu__lista {
     list-style: none;
@@ -100,14 +152,391 @@ footer, footer > nav > ul{
 
 h1 {
     color: var(--titulo-color);
-    text-align: center;
+    text-align: left;
     font-size: 20px;
     margin-top: 60px;
+
 }
 
 
 .principal {
-    min-height: 500px;
+    min-height: 70%;
+    flex: 1;
+
+}
+
+.principal > p {
+    color: var(--texto-secundario);
+    font-size: large;
+    margin-top: 0;
+    margin-bottom: 25px;
+
+}
+
+/* 2 columnas para pc- */
+.contenido {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+}
+
+
+.ayuda {
+    background-color: var(--texto-blanco);
+    border: 1px solid var(--borde-caja);
+    border-radius: 5px;
+    padding: 20px;
+    display: grid;
+
+    align-content: start;
+}
+
+
+.ayuda__titulo {
+    color: var(--principal);
+    font-size: x-large;
+    margin-bottom: 10%;
+}
+
+
+.ayuda__lista {
+    list-style: circle;
+    display: grid;
+    gap: 25px;
+    padding: 0;
+    
+}
+
+.ayuda__paso {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 15px;
+    align-items: start;
+}
+
+.ayuda__numero {
+    background-color: var(--principal);
+    color: var(--texto-blanco);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ayuda__texto {
+    margin: 0;
+    color: var(--texto-secundario);
+
+}
+
+.ayuda__texto strong {
+    color: var(--texto-negro);
+}
+
+
+/* fieldsets del formulario */
+
+    
+.grupo__titulo {
+    color: var(--principal);
+    font-weight: bold;
+    padding: 0px;
+}
+
+.grupo {
+    background-color: #ffffff;
+    border: 1px solid var(--borde-caja);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+
+
+.grupo__campos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+    row-gap: 15px;
+}
+
+.campo {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 5px;
+    min-width: 0;
+    
+}
+
+
+
+.campo__etiqueta {
+    font-size: large;
+    font-weight: bold;
+    color: var(--texto-negro);
+}
+
+.campo__control {
+    width: 100%;
+    border: 1px solid #040404;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: var(--texto-blanco);
+    color: var(--texto-negro);
+    box-sizing: border-box;
+}
+
+.campo__ayuda {
+    color: var(--color-texto-ayuda);
+    
+}
+
+.campo--nombre {
+    grid-column: span 2;
+}
+
+
+.campo--apellidos {
+    grid-column: span 4;
+}
+
+.campo--correo {
+    grid-column: span 3;
+}
+
+
+.campo--telefono {
+    grid-column: span 3;
+}
+
+.campo--nacimiento {
+    grid-column: span 2;
+}
+
+.campo--ciclo {
+    grid-column: span 3;
+}
+
+
+
+
+.campo--curso { 
+    grid-column: span 3; 
+}
+.campo--nota {
+     grid-column: span 2; 
+}
+.campo--idiomas { 
+    grid-column: span 4;
+ }
+
+
+.campo--pais {
+    grid-column: span 3;
+}
+
+.campo--incorporacion {
+    grid-column: span 3;
+}
+
+.campo--duracion {
+    grid-column: span 6; 
+}
+
+.campo--carta {
+    grid-column: span 6; 
+}
+
+.campo--curriculum {
+    grid-column: span 6; 
+}
+
+
+
+.grupo__campos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.campo {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 5px;
+    min-width: 0;
+}
+
+
+/*los seleccionables*/
+
+.opciones {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.opciones__pregunta {
+    font-size: large;
+    font-weight: bold;
+    color: var(--texto-negro);
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.opciones__lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    column-gap: 25px;
+    row-gap: 10px;
+}
+
+.opcion {
+    display: grid;
+    grid-template-columns: 25px 1fr;
+    gap: 10px;
+    align-items: center;
+    color: var(--color-texto);
+    min-height: 45px;
+}
+
+.opcion input {
+    margin: 0;
+}
+
+
+.opcion--larga {
+    display: grid;
+    grid-template-columns: 25px 1fr;
+    gap: 10px;
+    align-items: start;
+    margin: 25px 0;
+}
+
+
+/* textarea */
+textarea.campo__control {
+    resize: vertical;
+    min-height: 200px;
+
+}
+
+
+.campo__pie {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+}
+
+
+/*Politicas de privacidad*/
+
+.opcion--larga {
+    align-items: start;
+
+}
+
+.opcion--larga a {
+    color: var(--principal);
+    
+}
+
+.telefono {
+    display: grid;
+    grid-template-columns: minmax(95px, 150px) 1fr;
+    gap: 15px;
+}
+
+/*terminos y condiciones*/
+.botonera {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.boton--borrar {
+    border-color: var(--borde-gris);
+    color: var(--texto-secundario);
+    background-color: #ffffff;
+    grid-column: 1;
+}
+
+
+.boton {
+    padding: 15px;
+    font-weight: bold;
+    border: 2px solid var(--principal);
+    width: auto;
+    text-align: center;
+}
+
+
+
+.boton--principal {
+    background-color: var(--principal);
+    color: var(--texto-blanco);
+    grid-column: 4;
+
+}
+
+
+
+.boton--secundario {
+    background-color: var(--color-fondo-tarjetas);
+    color: var(--principal);
+    grid-column: 3;
+}
+
+
+
+.boton--terciario {
+    border-color: var(--borde-gris);
+    color: var(--texto-secundario);
+    grid-column: 1;
+}
+
+
+
+
+
+footer {
+    position: relative; bottom: 0;
+    background-color: var(--footer-bg);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    padding: 20px;
+    margin-top: auto; 
+
+}
+
+footer, footer > nav > ul{
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+
+/*lo he puesto por ejemplo así porque en la imagen no venía exactamente*/
+.salto {
+    background-color: var(--principal);
+    color: var(--texto-blanco);
+    text-decoration: none;
+    font-size: smaller;
+    padding-left: 1%;
+    padding-top: 1%;
 }
 
 .pie {
@@ -131,4 +560,76 @@ h1 {
 .pie__enlace {
     text-decoration: none;
     font-size: 12px;
+}
+
+
+
+/* diseño responsivo para pantallas medianas como tablets */
+@media (max-width: 56em) {
+    .contenido {
+        grid-template-columns: 1fr;
+    }
+
+    header,.cabecera {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .menu__lista {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 0;
+    }
+
+    footer,.pie {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .pie__lista {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 0;
+    }
+}
+
+/* PResponsive para móviles */
+@media (max-width: 40em) {
+    .grupo__campos {
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+    }
+
+    /* cada campo ocupa su fila completa */
+    .campo--nombre,.campo--apellidos,.campo--correo,.campo--telefono,
+    .campo--nacimiento,.campo--ciclo,.campo--curso,.campo--nota,
+    .campo--idiomas,.campo--pais,.campo--incorporacion,.campo--duracion,.campo--carta,.campo--curriculum {
+        grid-column: auto;
+    }
+
+    .campo__pie {
+        grid-template-columns: 1fr;
+        gap: 10pxrem;
+    }
+
+    .botonera {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .boton {
+        width: 100%;
+    }
+
+    .boton--borrar,.boton--secundario,.boton--principal {
+        grid-column: auto;
+    }
 }
