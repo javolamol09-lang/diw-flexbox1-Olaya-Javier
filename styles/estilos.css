@@ -56,6 +56,7 @@ body {
 
 header {
     background-color: var(--header-bg);
+    background-image: linear-gradient(to right, #12355b, #1f5088);
 
 }
 
@@ -76,6 +77,8 @@ a {
 
 main h1 {
     font-size: xx-large;
+    text-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.45);
+
 }
 
 main {
@@ -103,6 +106,7 @@ main {
 
 .formulario {
     gap: 0;
+    
 }
 
 
@@ -187,6 +191,7 @@ h1 {
     border-radius: 5px;
     padding: 20px;
     display: grid;
+    box-shadow: 0 0.125rem 0.5rem var(--color-texto);
 
     align-content: start;
 }
@@ -200,17 +205,18 @@ h1 {
 
 
 .ayuda__lista {
-    list-style: circle;
+    list-style: none;
     display: grid;
     gap: 25px;
     padding: 0;
-    
+    margin: 0;
 }
 
 .ayuda__paso {
     display: grid;
-    grid-template-columns: 20px 1fr;
+    grid-template-columns: 30px 1fr;
     gap: 15px;
+
     align-items: start;
 }
 
@@ -223,6 +229,12 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.2s;
+}
+
+/*para que crezca le ponemos el scale del ejercicio */
+.ayuda__paso:hover .ayuda__numero {
+    transform: scale(1.1);
 }
 
 .ayuda__texto {
@@ -246,11 +258,12 @@ h1 {
 }
 
 .grupo {
-    background-color: #ffffff;
+    background-color: var(--color-fondo-tarjetas);
     border: 1px solid var(--borde-caja);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 56, 0.2);
 
 }
 
@@ -260,6 +273,7 @@ h1 {
     grid-template-columns: repeat(6, 1fr);
     column-gap: 20px;
     row-gap: 15px;
+    
 }
 
 .campo {
@@ -461,12 +475,6 @@ textarea.campo__control {
     align-items: center;
 }
 
-.boton--borrar {
-    border-color: var(--borde-gris);
-    color: var(--texto-secundario);
-    background-color: #ffffff;
-    grid-column: 1;
-}
 
 
 .boton {
@@ -483,28 +491,63 @@ textarea.campo__control {
     background-color: var(--principal);
     color: var(--texto-blanco);
     grid-column: 4;
-
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 56, 0.2);
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
+/*boton principal */
+.boton--principal:hover,
+.boton--principal:focus-visible {
+    background-color: rgb(0, 0, 61);
+    transform: translateY(-2px);
+}
 
+.boton--principal:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
 
+/*secundario */
 .boton--secundario {
     background-color: var(--color-fondo-tarjetas);
     color: var(--principal);
     grid-column: 3;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.boton--secundario:hover,
+.boton--secundario:focus-visible {
+    background-color: var(--borde-caja);
+    transform: translateY(-2px);
+}
+
+.boton--secundario,
+.boton--borrar {
+    background-color: var(--color-fondo-tarjetas);
+    color: var(--principal);
+    border: 1px solid var(--borde-caja);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.boton--secundario:hover,.boton--secundario:focus-visible,
+.boton--borrar:hover,.boton--borrar:focus-visible {
+    background-color: var(--borde-caja);
+    transform: translateY(-2px);
+}
+
+.boton--secundario:active,
+.boton--borrar:active {
+    transform: translateY(0);
 }
 
 
-
-.boton--terciario {
-    border-color: var(--borde-gris);
-    color: var(--texto-secundario);
+.boton--borrar {
     grid-column: 1;
 }
 
-
-
-
+.boton--secundario {
+    grid-column: 3;
+}
 
 footer {
     position: relative; bottom: 0;
@@ -513,6 +556,7 @@ footer {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    justify-content: space-between; 
     align-items: center;
     gap: 16px;
 
@@ -537,6 +581,7 @@ footer, footer > nav > ul{
     font-size: smaller;
     padding-left: 1%;
     padding-top: 1%;
+    background-image: linear-gradient(to right, #12355b, #1f5088);
 }
 
 .pie {
